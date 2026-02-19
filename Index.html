@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marc & Je Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(to bottom,#fff0f5,#ffffff);color:#333;overflow-x:hidden;}
+
+/* Floating Hearts */
+.hearts{position:fixed;width:100%;height:100%;pointer-events:none;z-index:1;overflow:hidden;}
+.heart{position:absolute;bottom:-50px;font-size:20px;animation:float 10s linear infinite;opacity:0.7;}
+@keyframes float{0%{transform:translateY(0) scale(1);}100%{transform:translateY(-110vh) scale(1.5);}}
+
+/* HERO */
+.hero{height:100vh;background:url('https://images.unsplash.com/photo-1529636798458-92182e662485?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1600&q=80') center/cover no-repeat fixed;display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;}
+.hero::after{content:'';position:absolute;width:100%;height:100%;background:rgba(0,0,0,0.45);}
+.hero-content{position:relative;z-index:2;animation:fadeUp 2s ease;}
+.hero h1{font-family:'Playfair Display',serif;font-size:55px;letter-spacing:3px;}
+.hero p{margin-top:15px;font-size:18px;letter-spacing:2px;}
+
+/* SECTION */
+section{padding:100px 10%;position:relative;z-index:2;}
+.title{text-align:center;margin-bottom:60px;font-family:'Playfair Display',serif;font-size:38px;color:#d63384;}
+
+/* STORY */
+.story{text-align:center;max-width:700px;margin:auto;line-height:1.9;font-size:18px;}
+
+/* GALLERY */
+.gallery{column-count:3;column-gap:25px;}
+.gallery img{width:100%;margin-bottom:25px;border-radius:20px;transition:0.6s;box-shadow:0 15px 40px rgba(0,0,0,0.15);break-inside:avoid;}
+.gallery img:hover{transform:scale(1.05);box-shadow:0 25px 60px rgba(214,51,132,0.4);}
+
+/* EVENT */
+.event{text-align:center;background:white;border-radius:40px;padding:70px 20px;box-shadow:0 20px 60px rgba(0,0,0,0.1);}
+.event h2{font-family:'Playfair Display',serif;font-size:32px;margin-bottom:20px;}
+.btn{display:inline-block;margin-top:25px;padding:14px 30px;background:linear-gradient(45deg,#ff4d6d,#d63384);color:white;border-radius:50px;text-decoration:none;font-weight:600;transition:0.4s;}
+.btn:hover{transform:scale(1.08);box-shadow:0 10px 30px rgba(0,0,0,0.3);}
+
+/* FOOTER */
+footer{text-align:center;padding:50px;background:#d63384;color:white;font-size:16px;}
+
+/* Fade Animation */
+.fade{opacity:0;transform:translateY(60px);transition:1.3s ease;}
+.fade.show{opacity:1;transform:translateY(0);}
+@keyframes fadeUp{from{opacity:0; transform:translateY(40px);}to{opacity:1; transform:translateY(0);}}
+
+/* Responsive */
+@media(max-width:900px){.gallery{column-count:2;}}
+@media(max-width:600px){.gallery{column-count:1;}.hero h1{font-size:35px;}}
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<!-- HERO -->
+<div class="hero">
+<div class="hero-content">
+<h1>Marc & Je</h1>
+<p>Forever Starts Today</p>
+</div>
+</div>
+
+<!-- STORY -->
+<section>
+<h2 class="title fade">Our Love Story</h2>
+<div class="story fade">
+Kami tidak mencari kesempurnaan, kami menemukan kenyamanan. Dari tatapan sederhana menjadi janji selamanya. Bersama, setiap langkah terasa lebih berarti, dan setiap hari terasa seperti rumah.
+</div>
+</section>
+
+<!-- AKAD -->
+<section>
+<div class="event fade">
+<h2>Akad Nikah</h2>
+<p>Kamis, 19 Februari 2026</p>
+<p>jam: 17:00 </p>
+<p>Beautiful Garden Venue</p>
+<a href="https://t.me/+6segtlUy6PI2ZGJl" target="_blank" class="btn">Lihat Lokasi Akad</a>
+</div>
+</section>
+
+<!-- RESEPSI -->
+<section>
+<div class="event fade">
+<h2>Resepsi Pernikahan</h2>
+<p>Kamis, 19 Februari 2026</p>
+<p>20:00  - selesai</p>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section>
+<h2 class="title fade">Romantic Moments</h2>
+<div class="gallery fade">
+<!-- Semua foto pasti muncul -->
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80">
+<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80">
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80">
+</div>
+</section>
+
+<footer>
+With Love 🤍 Marc & Je
+</footer>
+
+<script>
+/* Fade on Scroll */
+const fades = document.querySelectorAll('.fade');
+window.addEventListener('scroll', ()=>{
+fades.forEach(el=>{
+const top = el.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+el.classList.add('show');
+}
+});
+});
+
+/* Floating Hearts */
+const heartContainer = document.getElementById("hearts");
+for(let i=0;i<25;i++){
+let heart = document.createElement("div");
+heart.className="heart";
+heart.innerHTML="🤍";
+heart.style.left=Math.random()*100+"%";
+heart.style.animationDuration=(6+Math.random()*6)+"s";
+heart.style.fontSize=(15+Math.random()*20)+"px";
+heartContainer.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
